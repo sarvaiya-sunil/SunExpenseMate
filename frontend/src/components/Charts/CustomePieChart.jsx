@@ -34,8 +34,8 @@ const CustomePieChart = ({
             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
           ))}
         </Pie>
-        <Tooltip content={CustomTooltip} />
-        <Legend content={CustomLegend} />
+        <Tooltip content={<CustomTooltip />} />
+        <Legend content={<CustomLegend />} />
 
         {showTextAnchor && (
           <>

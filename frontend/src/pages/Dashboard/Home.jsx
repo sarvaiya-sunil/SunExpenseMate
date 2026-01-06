@@ -4,13 +4,15 @@ import { useUserAuth } from "../../hooks/useUserAuth";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import InfoCard from "../../components/layouts/Cards/InfoCard";
+import InfoCard from "../../components/Cards/InfoCard";
 
 import { LuHandCoins, LuWalletMinimal } from "react-icons/lu";
 import { IoMdCard } from "react-icons/io";
 import { addThousandsSeparator } from "../../utils/helper";
-import RecentTransactions from "../../components/layouts/Dashboard/RecentTransactions";
-import FinanceOverview from "../../components/layouts/Dashboard/FinanceOverview";
+import RecentTransactions from "../../components/Dashboard/RecentTransactions";
+import FinanceOverview from "../../components/Dashboard/FinanceOverview";
+import ExpenseTransaction from "../../components/Dashboard/ExpenseTransaction";
+import Last30DaysExpense from "../../components/Dashboard/Last30DaysExpense";
 
 const Home = () => {
   useUserAuth();
@@ -72,6 +74,13 @@ const Home = () => {
             totalIncome={dashboardData?.totalIncome || 0}
             totalExpense={dashboardData?.totalExpense || 0}
           />
+          <ExpenseTransaction
+            transactions={dashboardData?.last30DaysExpense?.transactions || []}
+            onSeeMore={() => navigate("/expense")}
+          />
+          <Last30DaysExpense
+            data={dashboardData?.last30DaysExpense?.transactions || []}
+          />
         </div>
       </div>
     </DashboardLayout>
@@ -80,4 +89,4 @@ const Home = () => {
 
 export default Home;
 
-//2:42:00
+//3:00:00
