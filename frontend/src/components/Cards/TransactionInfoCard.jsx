@@ -13,15 +13,24 @@ const TransactionInfoCard = ({
   amount,
   type,
   hideDeleteBtn,
+  onDelete,
 }) => {
-  const onDelete = () => {};
   const getAmountStyles = () =>
     type === "income" ? "bg-green-50 text-green-500" : "bg-red-50 text-red-500";
 
   return (
     <div className="group relative flex items-center gap-4 mt-2 p-3 rounded-lg hover:bg-gray-100/60">
       <div className="w-12 h-12 flex items-center justify-center text-xl text-gray-800 bg-gray-100 rounded-full">
-        {icon ? <span className="text-xl"> {icon} </span> : <LuUtensils />}
+        {/* {icon ? <span className="text-xl"> {icon} </span> : <LuUtensils />} */}
+        {icon ? (
+          icon.startsWith("http") ? (
+            <img src={icon} alt="icon" className="w-8 h-8 object-contain" />
+          ) : (
+            <span className="text-2xl">{icon}</span>
+          )
+        ) : (
+          <LuUtensils />
+        )}
       </div>
       <div className="flex-1 flex items-center justify-between">
         <div>
