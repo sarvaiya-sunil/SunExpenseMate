@@ -17,7 +17,7 @@ const FinanceOverview = ({ totalBalance, totalIncome, totalExpense }) => {
       <CustomePieChart
         data={balanceData}
         label="Total Balance"
-        totalAmount={`$${totalBalance}`}
+        totalAmount={`₹${totalBalance}`}
         colors={COLORS}
         showTextAnchor
       />
