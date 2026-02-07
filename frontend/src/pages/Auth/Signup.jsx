@@ -15,6 +15,8 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const { updateUser } = useContext(UserContext);
@@ -42,6 +44,7 @@ const Signup = () => {
     }
 
     setError("");
+    setLoading(true);
 
     try {
       if (profilePic) {
@@ -68,6 +71,8 @@ const Signup = () => {
       } else {
         setError("Something went wrong, Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -107,7 +112,7 @@ const Signup = () => {
           </div>
           {error && <p className="text-xs text-red-500 pb-2.5">{error}</p>}
           <button type="submit" className="btn-primary">
-            SIGN UP
+            {loading ? "Creating Account..." : "Sign Up"}
           </button>
           <p className="text-[13px] text-slate-800 mt-3">
             Already have an Account?{" "}

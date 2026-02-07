@@ -12,7 +12,7 @@ const AuthLayout = ({ children }) => {
             className="h-25 w-25 rounded-full object-cover "
             alt="LogoImage"
           />
-          <h2 className="text-xl font-semibold text-black ml-5 ">
+          <h2 className="text-2xl font-semibold text-black ml-5 ">
             Expense Tracker
           </h2>
         </div>
