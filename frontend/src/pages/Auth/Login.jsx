@@ -60,41 +60,57 @@ const Login = () => {
 
   return (
     <AuthLayout>
-      <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-black">Welcome Back</h3>
-        <p className="text-xs text-slate-700 mt-[5px] mb-6">
-          Please enter your detail to log in
-        </p>
-        <form onSubmit={handleLogin}>
-          <Input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            label="Email Address"
-            placeholder="sunil@example.com"
-            type="text"
-            autoComplete="off"
-          />
-          <Input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            label="Password"
-            placeholder="min. 8 characters"
-            type="password"
-            autoComplete="new-password"
-          />
+      <div className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        {/* Card Container */}
+        <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6 sm:p-8">
+          <h3 className="text-xl sm:text-2xl font-semibold text-black text-center md:text-left">
+            Welcome Back
+          </h3>
 
-          {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
-
-          <button type="submit" className="btn-primary">
-            {loading ? "logging in..." : "Login"}
-          </button>
-          <p className="text-[13px] text-slate-800 mt-3">
-            Don't have an Account?
-            <Link to="/signup" className="font-medium text-primary underline">
-              SignUp
-            </Link>
+          <p className="text-sm text-slate-600 mt-2 mb-6 text-center md:text-left">
+            Please enter your details to log in
           </p>
-        </form>
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            <Input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              label="Email Address"
+              placeholder="sunil@example.com"
+              type="email"
+              autoComplete="off"
+            />
+
+            <Input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              label="Password"
+              placeholder="Minimum 8 characters"
+              type="password"
+              autoComplete="new-password"
+            />
+
+            {error && (
+              <p className="text-red-500 text-sm text-center md:text-left">
+                {error}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="w-full py-2.5 rounded-lg bg-primary text-white font-medium transition hover:opacity-90"
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+
+            <p className="text-sm text-slate-700 text-center mt-4">
+              Don't have an account?{" "}
+              <Link to="/signup" className="font-medium text-primary underline">
+                Sign Up
+              </Link>
+            </p>
+          </form>
+        </div>
       </div>
     </AuthLayout>
   );
