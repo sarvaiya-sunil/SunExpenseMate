@@ -67,38 +67,53 @@ const Signup = () => {
   };
   return (
     <AuthLayout>
-      <div className="w-full max-w-md mx-auto px-4 sm:px-0">
-        <h3 className="text-xl sm:text-2xl font-semibold text-black text-center md:text-left">
-          Create an Account
-        </h3>
-
-        <p className="text-sm text-slate-600 mt-2 mb-6 text-center md:text-left">
-          Join us today by entering your details below.
-        </p>
-
-        <form onSubmit={handleSignup} className="space-y-4">
-          <div className="flex justify-center md:justify-start">
-            <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
+      <div className="min-h-screen flex items-center justify-center px-4 py-8">
+        {/* Card */}
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+          {/* Heading */}
+          <div className="text-center mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              Create Account
+            </h2>
+            <p className="text-sm text-gray-600 mt-2">
+              Join us today by entering your details below
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              label="Full Name"
-              placeholder="Sunil Sarvaiya"
-              type="text"
-            />
+          {/* Form */}
+          <form onSubmit={handleSignup} className="space-y-5">
+            {/* Profile Selector */}
+            <div className="flex justify-center">
+              <ProfilePhotoSelector
+                image={profilePic}
+                setImage={setProfilePic}
+              />
+            </div>
 
-            <Input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              label="Email"
-              placeholder="sunil@example.com"
-              type="email"
-            />
+            {/* Full Name */}
+            <div>
+              <Input
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                label="Full Name"
+                placeholder="Sunil Sarvaiya"
+                type="text"
+              />
+            </div>
 
-            <div className="md:col-span-2">
+            {/* Email */}
+            <div>
+              <Input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                label="Email Address"
+                placeholder="sunil@example.com"
+                type="email"
+              />
+            </div>
+
+            {/* Password */}
+            <div>
               <Input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -107,28 +122,33 @@ const Signup = () => {
                 type="password"
               />
             </div>
-          </div>
 
-          {error && (
-            <p className="text-sm text-red-500 text-center md:text-left">
-              {error}
+            {/* Error */}
+            {error && (
+              <p className="text-sm text-red-500 text-center">{error}</p>
+            )}
+
+            {/* Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-70"
+            >
+              {loading ? "Creating Account..." : "Sign Up"}
+            </button>
+
+            {/* Login Link */}
+            <p className="text-sm text-center text-gray-700">
+              Already have an account?{" "}
+              <Link
+                to="/login"
+                className="text-purple-600 font-medium hover:underline"
+              >
+                Login
+              </Link>
             </p>
-          )}
-
-          <button
-            type="submit"
-            className="w-full py-2.5 rounded-lg bg-primary text-white font-medium transition hover:opacity-90"
-          >
-            {loading ? "Creating Account..." : "Sign Up"}
-          </button>
-
-          <p className="text-sm text-slate-700 text-center mt-4">
-            Already have an account?{" "}
-            <Link to="/login" className="font-medium text-primary underline">
-              Login
-            </Link>
-          </p>
-        </form>
+          </form>
+        </div>
       </div>
     </AuthLayout>
   );
