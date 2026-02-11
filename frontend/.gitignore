@@ -9,7 +9,8 @@ lerna-debug.log*
 
 # Environment variables
 
-.env
+backend/.env
+frontend/.env
 .env.*
 
 node_modules/
