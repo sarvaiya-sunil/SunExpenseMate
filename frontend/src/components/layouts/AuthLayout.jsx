@@ -1,51 +1,41 @@
 import React from "react";
+//import Card2 from "../../assets/Images/card2.png";
 import { LuTrendingUpDown } from "react-icons/lu";
 
 const AuthLayout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
-      {/* Left Section */}
-      <div className="w-full md:w-[60%] flex flex-col px-4 sm:px-6 lg:px-12 py-6 sm:py-8">
-        {/* Logo Header */}
-        <div className="flex items-center gap-4 mb-8">
+    <div className="flex">
+      <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
+        <div className="flex items-center -mb-20">
           <img
             src="logo.png"
-            alt="Logo"
-            className="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover"
+            className="h-25 w-25 rounded-full object-cover "
+            alt="LogoImage"
           />
-          <h2 className="text-xl sm:text-2xl font-semibold text-black">
+          <h2 className="text-2xl font-semibold text-black ml-5 ">
             Expense Tracker
           </h2>
         </div>
-
-        {/* Auth Content */}
-        <div className="flex-1">
-          <div className="w-full max-w-md">{children}</div>
-        </div>
+        {children}
       </div>
+      <div className="hidden md:block w-[40vw] h-screen bg-violet-50 bg-auth-bg-img bg-cover bg-no-repeat bg-center overflow-hidden p-8 relative">
+        <div className="h-48 w-48 rounded-[40px] bg-purple-600 absolute -top-7 -left-5"></div>
+        <div className="w-48 h-56 rounded-[40px] border-[20px] border-fuchsia-600 absolute top-[30%] right-10"></div>
+        <div className="w-48 h-48 rounded-[40px] bg-violet-500 absolute -bottom-7 -left-5"></div>
 
-      {/* Right Section (Hidden on Mobile) */}
-      <div className="hidden md:flex md:w-[40%] relative bg-violet-50 bg-auth-bg-img bg-cover bg-no-repeat bg-center p-8 overflow-hidden">
-        {/* Decorative Shapes */}
-        <div className="absolute -top-6 -left-6 w-40 h-40 bg-purple-600 rounded-3xl" />
-        <div className="absolute top-1/3 right-10 w-40 h-48 border-[18px] border-fuchsia-600 rounded-3xl" />
-        <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-violet-500 rounded-3xl" />
-
-        {/* Card Section */}
-        <div className="relative z-10 w-full flex flex-col justify-center">
+        <div className="grid grid-cols-1 z-20">
           <StatsInfoCard
             icon={<LuTrendingUpDown />}
             label="Track Your Income & Expenses"
             value="430,000"
             color="bg-primary"
           />
-
-          <img
-            src="card2.png"
-            alt="Card Preview"
-            className="mt-10 w-full max-w-xs lg:max-w-sm mx-auto shadow-lg shadow-blue-400/20"
-          />
         </div>
+
+        <img
+          src="card2.png"
+          className="w-64 lg:w-[90%] absolute bottom-10 shadow-lg shadow-blue-400/15"
+        />
       </div>
     </div>
   );
@@ -55,15 +45,15 @@ export default AuthLayout;
 
 const StatsInfoCard = ({ icon, label, value, color }) => {
   return (
-    <div className="flex gap-4 bg-white p-4 rounded-xl shadow-md border border-gray-200">
+    <div className="flex gap-6 bg-white p-4 rounded-xl shadow-md shadow-purple-400/10 border border-gray-200/50 z-10">
       <div
-        className={`w-12 h-12 flex items-center justify-center text-xl text-white ${color} rounded-full`}
+        className={`w-12 h-12 flex items-center justify-center text-[26px] text-white ${color} rounded-full drop-shadow-xl`}
       >
         {icon}
       </div>
       <div>
         <h6 className="text-xs text-gray-500 mb-1">{label}</h6>
-        <span className="text-lg font-semibold">{value}</span>
+        <span className="text-[20px]">{value}</span>
       </div>
     </div>
   );
