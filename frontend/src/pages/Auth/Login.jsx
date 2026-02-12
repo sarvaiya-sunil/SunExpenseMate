@@ -53,9 +53,7 @@ const Login = () => {
   return (
     <AuthLayout>
       <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-black sm:mt-10">
-          Welcome Back
-        </h3>
+        <h3 className="text-xl font-semibold text-black">Welcome Back</h3>{" "}
         <p className="text-xs text-slate-700 mt-[5px] mb-6">
           Please enter your detail to log in
         </p>
@@ -72,7 +70,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             label="Password"
-            placeholder="Enter Passsword"
+            placeholder="min. 8 characters"
             type="password"
             autoComplete="new-password"
           />
