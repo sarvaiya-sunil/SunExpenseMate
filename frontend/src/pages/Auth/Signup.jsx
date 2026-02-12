@@ -105,7 +105,7 @@ const Signup = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 label="Password"
-                placeholder="min. 8 characters"
+                placeholder="Enter password"
                 type="password"
               />
             </div>
