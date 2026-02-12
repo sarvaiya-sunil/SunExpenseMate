@@ -77,7 +77,7 @@ const Signup = () => {
   };
   return (
     <AuthLayout>
-      <div className="lg:w-100% h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center">
+      <div className="w-full h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center">
         <h3 className="text-xl font-semibold text-black sm:mt-15">
           Create an Account
         </h3>
@@ -87,7 +87,7 @@ const Signup = () => {
         <form onSubmit={handleSignup}>
           <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
