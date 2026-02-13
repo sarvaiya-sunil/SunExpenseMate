@@ -28,7 +28,7 @@ const Home = () => {
     setLoading(true);
     try {
       const response = await axiosInstance.get(
-        `${API_PATHS.DASHBOARD.GET_DATA}`
+        `${API_PATHS.DASHBOARD.GET_DATA}`,
       );
       setDashboardData(response.data);
     } catch (error) {
